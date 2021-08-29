@@ -36,15 +36,17 @@ public class GddServiceImpl implements GddService {
 		
 		//Se generan las fechas faltantes
 		Random random = new Random();
-		int fechasEntrantes = request.getFechas().size();
-		int cantidadFechas = random.nextInt(fechasFaltantes.totalDates() + 2 - fechasEntrantes) + (fechasEntrantes - 3);
+		int MAX = fechasFaltantes.totalDates() - request.getFechas().size();
+		int MIN = random.nextInt(MAX-2);
+		int cantidadFechas = random.nextInt((MAX - MIN) + 1) + MIN;
 		System.out.println(cantidadFechas);
 		while(fechas.size() < cantidadFechas) {
 			fechas.add(fechasFaltantes.nextDate());
 			fechas.removeIf(x -> request.getFechas().contains(x));
 		}
 		
-		//Ordena fechas entrantes
+		//Elimina fechas entrantes y ordena fechas salientes
+		
 		response.setFechasFaltantes(fechas.stream().sorted().collect(Collectors.toList()));
 		
 		return response;
