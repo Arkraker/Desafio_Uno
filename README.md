@@ -23,10 +23,10 @@ Ejemplo Json de ejecución:
 # Limpiar y Compilar el proyecto
 mvn clean package
 
-# Ejecutar el proyecto
-java -jar .\GDD-1.0.jar
-
 # Tecnologías utilizadas
-
 - Spring Boot 2.5.4
 - Java 1.8.0_231
+
+Nombre: Claudio Fabián Flores Allende
+Correo: claudio.flores.allende@gmail.com
+Me enteré del desafío por una ex colega de Sodexo
